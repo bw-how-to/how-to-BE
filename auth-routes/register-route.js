@@ -15,7 +15,7 @@ const secrets=require('../config/secret.js')
         res.status(422).json({message:'You must have a Username, Password, and type of account to register'})
     }else{
     db('users')
-    .insert(req.body)
+    .insert(req.body,'id')
     .then(user =>{
         const token=generateToken(user)
         res.status(200).json({message:`You have successfully singed up`,token})
