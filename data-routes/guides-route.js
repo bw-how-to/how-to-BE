@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const db =require('../data/dbConfig.js');
 const protected=require('../protected/protected.js');
-// const checkType = require('../config/restricted-middleware.js');
+const checkType = require('../config/restricted-middleware.js');
 
-router.post('/', protected, (req, res) => {
+router.post('/', protected, checkType('creator'),(req, res) => {
     if (!req.body.title||!req.body.user_id || !req.body.type || 
     !req.body.description || !req.body.step_1 ){
 
@@ -63,7 +63,7 @@ router.get('/', protected,(req, res) => {
   })
 });
 
-router.put('/:id', protected, (req, res) => {
+router.put('/:id', protected, checkType('creator'), (req, res) => {
 
     db('guides')
 
@@ -86,7 +86,7 @@ router.put('/:id', protected, (req, res) => {
     })
   });
 
-  router.delete('/:id', protected, (req, res) => {
+  router.delete('/:id', checkType('creator'), protected, (req, res) => {
 
     db('guides')
 
