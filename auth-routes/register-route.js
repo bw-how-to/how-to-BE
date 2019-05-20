@@ -31,7 +31,7 @@ const secrets=require('../config/secret.js')
        function generateToken(user){
         const payload={
             subject: user.id,
-            username:user.username
+            username:user.username,
         };
         const options={
             expiresIn:'1h'

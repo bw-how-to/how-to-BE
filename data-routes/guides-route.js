@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const db =require('../data/dbConfig.js');
-const protected=require('../protected/protected.js')
+const protected=require('../protected/protected.js');
+// const checkType = require('../config/restricted-middleware.js');
 
 router.post('/', protected, (req, res) => {
     if (!req.body.title||!req.body.user_id || !req.body.type || 
@@ -27,7 +28,7 @@ router.get('/', protected,(req, res) => {
 
     .join('users','guides.user_id','users.id',)
 
-    .select('guides.title',{username:'users.username'},'guides.type', 'guides.description', 'guides.step_1', 'guides.step_2', 'guides.step_3','guides.step_4', 'guides.step_5',)
+    .select('guides.id','guides.title',{username:'users.username'},'guides.type', 'guides.description', 'guides.step_1', 'guides.step_2', 'guides.step_3','guides.step_4', 'guides.step_5',)
     
     .then(guides => {
       res.status(200).json(guides);
@@ -44,7 +45,7 @@ router.get('/', protected,(req, res) => {
   db('guides')
   .join('users','guides.user_id','users.id',)
 
-  .select('guides.title',{username:'users.username'},'guides.type', 'guides.description', 'guides.step_1', 'guides.step_2', 'guides.step_3','guides.step_4', 'guides.step_5',)
+  .select('guides.id','guides.title',{username:'users.username'},'guides.type', 'guides.description', 'guides.step_1', 'guides.step_2', 'guides.step_3','guides.step_4', 'guides.step_5',)
   
   .where('guides.id', id)
   
@@ -107,5 +108,6 @@ router.put('/:id', protected, (req, res) => {
       res.status(500).json(err.message)
     })
   });
+
 
    module.exports=router
