@@ -9,7 +9,7 @@ const token=req.headers.authorization;
   if(err){
     res.status(401).json({message:'You must be logged in to see that.'})
   }else{
-    req.decodedToken=decodedToken;
+    req.decodedJwt=decodedToken;
     next();
   }
 })

@@ -32,6 +32,7 @@ const secrets=require('../config/secret.js')
         const payload={
             subject: user.id,
             username:user.username,
+            type:user.type
         };
         const options={
             expiresIn:'1h'
