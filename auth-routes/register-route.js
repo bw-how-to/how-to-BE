@@ -17,18 +17,22 @@ const secrets=require('../config/secret.js')
     db('users')
     .insert(req.body,'id')
     .then(user =>{
-        const token=generateToken(user)
-        res.status(200).json({message:`You have successfully singed up`,token})
-        })
-
+        db('users')
+        .where({username:req.body.username})
+        .first()
+        .then(user =>{ 
+            const token=generateToken(user)
+            res.status(200).json({message:`Welcome ${user.username}, you have successfully signed up`,token})
+          })
     .catch(err=>{
-        res.status(500).json({error:err,message:'Unable to sign up at this time'})
+        res.send(err.message).json({message:'unable to sign up'})
     })
+})
 }
+    
       });
 
-
-       function generateToken(user){
+      function generateToken(user){
         const payload={
             subject: user.id,
             username:user.username,
