@@ -1,8 +1,8 @@
 const router = require('express').Router();
 const db =require('../data/dbConfig.js');
-const protected=require('../protected/protected.js')
+const protect=require('../protected/protected.js')
 
- router.get('/', protected,(req, res) => {
+ router.get('/', protect,(req, res) => {
     db('users')
       .then(users => {
         res.status(200).json(users);
@@ -10,7 +10,7 @@ const protected=require('../protected/protected.js')
       .catch(err => res.send(err));
   });
 
-  router.get('/:id', protected, (req,res)=>{
+  router.get('/:id', protect, (req,res)=>{
     db('users')
     .where({id:req.params.id})
     .first()

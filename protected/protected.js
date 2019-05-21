@@ -2,7 +2,7 @@ const jwt=require('jsonwebtoken')
 const secrets=require('../config/secret.js')
 
 
-function protected(req, res, next){
+function protect(req, res, next){
 const token=req.headers.authorization;
 
  jwt.verify(token,secrets.jwtSecret,(err,decodedToken)=>{
@@ -15,4 +15,4 @@ const token=req.headers.authorization;
 })
 };
 
- module.exports=protected 
+ module.exports=protect
