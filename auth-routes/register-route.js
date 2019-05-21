@@ -22,7 +22,7 @@ const secrets=require('../config/secret.js')
         .first()
         .then(user =>{ 
             const token=generateToken(user)
-            res.status(200).json({message:`Welcome ${user.username}, you have successfully signed up`,token})
+            res.status(200).json({username:user.username,id:user.id,token})
           })
     .catch(err=>{
         res.send(err.message).json({message:'unable to sign up'})
