@@ -28,7 +28,7 @@ router.get('/', protected,(req, res) => {
 
     .join('users','guides.user_id','users.id',)
 
-    .select('guides.id','guides.title',{username:'users.username'},'guides.type', 'guides.description', 'guides.step_1', 'guides.step_2', 'guides.step_3','guides.step_4', 'guides.step_5',)
+    .select('guides.id','guides.title',{username:'users.username'},'guides.type', 'guides.description', 'guides.step_1', 'guides.step_2', 'guides.step_3','guides.step_4', 'guides.step_5','guides.link')
     
     .then(guides => {
       res.status(200).json(guides);
@@ -45,7 +45,7 @@ router.get('/', protected,(req, res) => {
   db('guides')
   .join('users','guides.user_id','users.id',)
 
-  .select('guides.id','guides.title',{username:'users.username'},'guides.type', 'guides.description', 'guides.step_1', 'guides.step_2', 'guides.step_3','guides.step_4', 'guides.step_5',)
+  .select('guides.id','guides.title',{username:'users.username'},'guides.type', 'guides.description', 'guides.step_1', 'guides.step_2', 'guides.step_3','guides.step_4', 'guides.step_5','guides.link')
   
   .where('guides.id', id)
   
