@@ -19,5 +19,7 @@ describe('server', () => {
 
         expect(res.type).toBe('text/html');
  })
-
+    it('sets the env to testing',() =>{
+        expect(process.env.DB_ENV).toBe('testing');
+})
 })
