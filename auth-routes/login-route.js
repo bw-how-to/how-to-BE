@@ -19,7 +19,7 @@ const secrets=require('../config/secret.js')
             const token=generateToken(user)
         res.status(200).json({message:`Welcome ${user.username}, you have successfully logged in`,token})
         }else{
-            res.status(401).json({message:'Invalid credentials'})
+            res.status(401).json({username:user.username,id:user.id,token})
         }
         })
     .catch(err=>{
