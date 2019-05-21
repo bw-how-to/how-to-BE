@@ -17,9 +17,9 @@ const secrets=require('../config/secret.js')
     .then(user =>{
         if(user&& bcrypt.compareSync(password,user.password)){
             const token=generateToken(user)
-        res.status(200).json({message:`Welcome ${user.username}, you have successfully logged in`,token})
+        res.status(200).json({username:user.username,id:user.id,token})
         }else{
-            res.status(401).json({username:user.username,id:user.id,token})
+            res.status(401).json({message:'invalid credientals'})
         }
         })
     .catch(err=>{
