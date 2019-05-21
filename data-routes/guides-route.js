@@ -86,7 +86,7 @@ router.put('/:id', protected, checkType('creator'), (req, res) => {
     })
   });
 
-  router.delete('/:id', checkType('creator'), protected, (req, res) => {
+  router.delete('/:id', protected, checkType('creator'),(req, res) => {
 
     db('guides')
 
