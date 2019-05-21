@@ -42,11 +42,14 @@ exports.up = function(knex, Promise) {
    tbl
    .string('step_5')
 
+   tbl
+   .string('link')
+
     });
 };
 
 
 exports.down = function(knex, Promise) {
-    return knex.schema.dropTableIfExists('users');
+    return knex.schema.dropTableIfExists('guides');
 };
 
