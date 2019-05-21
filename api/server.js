@@ -19,4 +19,8 @@ server.use('/login',loginRouter);
 server.use('/users',usersRouter)
 server.use('/guides',guideRouter)
 
+server.get('/',(req,res) =>{
+    res.status(200).json({message:'Server is working'})
+})
+
  module.exports = server;

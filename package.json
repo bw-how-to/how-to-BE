@@ -5,7 +5,8 @@
   "repository": "https://github.com/bw-how-to/how-to-BE.git",
   "scripts": {
     "start": "node index.js",
-    "server": "nodemon index.js"
+    "server": "nodemon index.js",
+    "test":"jest --watch --verbose"
   },
   "license": "MIT",
   "dependencies": {
