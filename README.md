@@ -10,8 +10,8 @@ Endpoints
 
 Auth Endpoints
 
-| Table    |  Method   |  Endpoint | Required Fields   .element: style="text-align:center;"      | Description  .element: style="text-align:center;"   |
-|----------|:---------:|----------:|----------------------:|-------------:|
+| Table    |  Method   |  Endpoint | Required Fields       | Description  |
+|----------|:---------:|:----------:|:----------------------:|:-------------|
 | users    |  Post     | /register|username, password, type |Creates a new user profile, returns the username , id, type and a jsonwebtoken in the body of the response|
 | users    |  Post     |/login|username, password|Uses the username and passowrd sent up to verify the user, if they match, returns the username , id, type and a jsonwebtoken in the body of the response|
 
@@ -26,8 +26,8 @@ Status Codes
 
 Users Endpoint
 
-| Table    |  Method   |  Endpoint | required fields  .element: style="text-align:center;"        | Description  .element: style="text-align:center;"   |
-|----------|:---------:|----------:|----------------------:|-------------:|
+| Table    |  Method   |  Endpoint | required fields       | Description  |
+|----------|:---------:|:----------:|----------------------:|:-------------|
 | users    |  Get     | /users:id |token labeled as authorization in headers |Returns the specific user by id, with username, id, type, and all guides related to the user|
 
 Status Codes
@@ -39,13 +39,13 @@ Status Codes
 
 Guides Endpoints
 
-| Table    |  Method   |  Endpoint | required fields .element: style="text-align:center;"       | Description  .element: style="text-align:center;"   |
-|----------|:---------:|----------:|----------------------:|-------------:|
-| guides    |  Post     | /guides|title, description, type, user_id, step_1 |Posts a new guide to the database. Requires token labeled as authorization in headers, user must be type: creator. .element: style="text-align:left;" |
-| guides    |  Get     | /guides |token labeled as authorization in headers |returns all of the guides.  .element: style="text-align:left;" |
-| guides    |  Get by id     | /guides:id |returns the guide with the specific id.  .element: style="text-align:left;" |
-| guides    |  Put     | /guides:id |token labeled as authorization in headers, user must be type: creator |Edits any field that comes back different from the specified guide. .element: style="text-align:left;" |
-| guides    |  Delete     | /guides:id |token labeled as authorization in headers, user must be type: creator |Deletes the specified guide from the database. .element: style="text-align:left;" |
+| Table    |  Method   |  Endpoint | required fields       | Description  |
+|----------|:---------:|:----------:|:----------------------:|:-------------|
+| guides    |  Post     | /guides|title, description, type, user_id, step_1 |Posts a new guide to the database. Requires token labeled as authorization in headers, user must be type: creator.
+| guides    |  Get     | /guides |token labeled as authorization in headers |returns all of the guides.|
+| guides    |  Get by id     | /guides:id |returns the guide with the specific id.|
+| guides    |  Put     | /guides:id |token labeled as authorization in headers, user must be type: creator |Edits any field that comes back different from the specified guide.|
+| guides    |  Delete     | /guides:id |token labeled as authorization in headers, user must be type: creator |Deletes the specified guide from the database.|
 
 Status Codes
 - 200 - If the get request successfully goes through the endpoint will return a response with a status code 200
