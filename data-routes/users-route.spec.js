@@ -42,11 +42,6 @@ describe('/users endpoint', async () =>{
 
 describe('/users by id endpoint',() =>{
 
-    it('returns a 200 status when the get by id works', async () => {
-
-        return request(server).get('/users/1').set('Authorization', `${token}`).expect(200)
-    })
-
     it('returns a 404 status when user does not exist', async () => {
 
         return request(server).get('/users/422').set('Authorization', `${token}`).expect(404)
