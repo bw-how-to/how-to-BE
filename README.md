@@ -28,7 +28,7 @@ Users Endpoint
 
 | Table    |  Method   |  Endpoint | required fields       | Description  |
 |----------|:---------:|----------:|----------------------:|-------------:|
-| users    |  Get     | /users:id |token labeled as authorization in headers |Brings back the specific user by id, with username, id, type, and all guides related to the user|
+| users    |  Get     | /users:id |token labeled as authorization in headers |Returns the specific user by id, with username, id, type, and all guides related to the user|
 
 Status Codes
 - 200 - If the get request successfully goes through the endpoint will return a response with a status code 200
